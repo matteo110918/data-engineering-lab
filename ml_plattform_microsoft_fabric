@@ -1,0 +1,187 @@
+# 🤖 AI Worker Burnout & Attrition – End-to-End ML Platform (Microsoft Fabric)
+
+## 📌 Overview
+
+This project demonstrates a fully orchestrated **end-to-end Data Engineering & Machine Learning platform** built in **Microsoft Fabric**.
+
+It covers the complete lifecycle from raw data ingestion to automated model retraining and business-facing predictions in Power BI.
+
+The goal of this project was to simulate a production-ready analytical ML system using modern data platform patterns:
+
+* Medallion Architecture (Bronze / Silver / Gold)
+* Spark ML Pipelines
+* Model persistence & batch inference
+* Orchestrated retraining
+* BI consumption layer
+
+---
+
+## 🏗 Architecture
+
+```
+Raw CSV (Bronze)
+        ↓
+Data Cleaning & Validation (Silver)
+        ↓
+Feature Engineering Pipeline
+        ↓
+Model Training (LogReg + Random Forest)
+        ↓
+Batch Inference
+        ↓
+Gold Prediction Table
+        ↓
+Power BI Dashboard
+```
+
+### Medallion Layers
+
+**Bronze**
+
+* Raw dataset ingestion
+* Immutable source table
+
+**Silver**
+
+* Schema enforcement
+* Data quality validation
+* Business feature enrichment
+* Clean, analytics-ready table
+
+**Gold**
+
+* ML predictions
+* Risk probability scores
+* BI-consumable output tables
+
+---
+
+## 🔍 Use Case
+
+The dataset models 1,500 tech professionals and explores:
+
+* AI tool usage intensity
+* Burnout levels
+* Job satisfaction
+* Fear of AI replacement
+* Attrition risk classification (Low / Medium / High)
+
+Primary objective:
+
+> Predict employee attrition risk based on AI usage and wellbeing indicators.
+
+---
+
+## 🧠 Machine Learning Design
+
+### Feature Engineering (Spark ML Pipeline)
+
+* StringIndexer for categorical features
+* OneHotEncoder
+* StandardScaler for numeric features
+* VectorAssembler
+* Label encoding for target
+
+Pipeline artifacts are persisted to Lakehouse for reproducibility.
+
+---
+
+### Models Trained
+
+* Logistic Regression (baseline)
+* Random Forest (non-linear ensemble model)
+
+Models are:
+
+* Trained on 80/20 split
+* Evaluated using Accuracy & F1-score
+* Persisted to Lakehouse storage
+* Used for batch inference
+
+---
+
+## 🔁 Automated Retraining
+
+A Fabric Data Pipeline orchestrates:
+
+1. Silver transformation
+2. Feature engineering
+3. Model training
+4. Batch scoring
+5. Gold table refresh
+
+The pipeline is:
+
+* Parameterized
+* Schedule-ready (e.g. monthly retraining)
+* Executable on-demand
+
+This simulates production-grade ML operations (MLOps-lite).
+
+---
+
+## 📊 Prediction Output
+
+Gold table includes:
+
+* `employee_id`
+* `predicted_risk`
+* `prob_high_risk`
+
+This enables:
+
+* Risk segmentation dashboards
+* Organizational heatmaps
+* Executive reporting
+
+---
+
+## ⚙️ Engineering Highlights
+
+* Full separation of data and ML layers
+* Persisted feature pipeline for reproducible inference
+* Modular notebook design
+* Orchestrated workflow
+* Batch inference ready
+* BI integration ready
+
+---
+
+## 🚀 Skills Demonstrated
+
+* Microsoft Fabric
+* Spark ML
+* Delta Lake
+* Medallion architecture
+* Data orchestration
+* Feature engineering pipelines
+* Model lifecycle management
+* Batch ML inference design
+* Production-style data platform thinking
+
+---
+
+## 📌 Key Takeaway
+
+This project demonstrates how modern data platforms can unify:
+
+**Data Engineering + Machine Learning + BI**
+
+into a single reproducible, orchestrated system — moving beyond notebooks into platform thinking.
+
+---
+
+## 🔮 Next Steps (Future Enhancements)
+
+* MLflow integration
+* Model version tracking
+* Drift detection
+* Real-time inference endpoint
+* CI/CD integration
+* Performance monitoring dashboard
+
+---
+
+## 💡 Repository Context
+
+This project is part of the broader **Data Engineering Lab**, which focuses on scalable, modular, and automated cloud data architectures.
